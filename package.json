@@ -3,14 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "node --max_old_space_size=400 ./node_modules/@angular/cli/bin/ng serve",
+    "build": "node --max_old_space_size=400 ./node_modules/@angular/cli/bin/ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "server": "node server.js",
-    "client": "npm start",
-    "app": "concurrently \"npm run client\" \"npm run server\""
-  },
+    "test": "ng test"
+    },
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.2.0",
