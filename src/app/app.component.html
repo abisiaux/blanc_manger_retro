@@ -1,16 +1,40 @@
 <h3>Blanc Manger Retro</h3>
 <div class="pure-g">
+  <div class="pure-u-1-5"><button #player class="button-info pure-button" (click)="showRules()">Rules</button></div>
   <div class="pure-u-1-5"><button #master class="pure-button" [class.pure-button-primary]="mode === 1" (click)="setGameToMaster()">I am master</button>
     <button #player class="pure-button" [class.pure-button-primary]="mode === 0" (click)="setGameToPlayer()">I am player</button>
   </div>
   <div class="pure-u-1-5"><button #player class="button-success pure-button" (click)="startGame()">Start</button></div>
   <div class="pure-u-1-5"><button #player class="button-error pure-button" (click)="resetGame()">Reset</button></div>
+</div>
 
+<div *ngIf="rulesVisible">
+  <p>
+    To start the game, each player draws 10 white cards
+    cards. <br/>
+    First round: The facilitator (the scrum master on this first
+    first round) draws a question card and reads it aloud.
+    out loud. This is a fill-in-the-blank sentence. <br/>
+    Question and answer cards are generally
+    neutral. It's the combination of the two that
+    makes for an explosive cocktail.<br/>
+    The other players play an answer card to complete
+    complete the sentence. The completed sentences are
+    read by the facilitator.<br/>
+    Sentences that make sense (we're in retrospect after all ☺ ) are explained.
+    hindsight all the same ☺ ) are explained.<br/>
+    Two points are then awarded:
+    - 1 point for the quirkiest or funniest sentence
+    - 1 point for the most constructive or
+    relevant
+    The winner with the funniest sentence becomes
+    facilitator for the next round.
+  </p>
 </div>
 
 <div class="pure-g">
   <div *ngFor="let cardUrl of cardUrls; ; let index = index" class="pure-u-1-5">
-    <img width="300" class = "pure-img" [src]="cardUrl" />
+    <img width="200" class = "pure-img" [src]="cardUrl" />
     <div style="font-weight: bold; text-align: center;">{{ cardTranslations[index] }}</div>
   </div>
 </div>
