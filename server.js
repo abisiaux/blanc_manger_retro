@@ -1,6 +1,6 @@
 const http = require('http');
 
-const hostname = 'localhost';
+const hostname = '0.0.0.0';
 const port = 3000;
 
 const MIN_MASTER_CARD = 63;
