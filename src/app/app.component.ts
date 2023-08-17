@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'blanc-manger-retro';
   mode = GameMode.PLAYER;
-  serverURL = 'http://localhost:3000';
+  serverURL = 'https://blanc-manger-retro-server.onrender.com';
   cardUrls: string[] = [];
   cardTranslations: string[] = [];
 
