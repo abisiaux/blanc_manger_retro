@@ -1,7 +1,7 @@
 <h3>Blanc Manger Retro</h3>
 <div class="pure-g">
   <div class="pure-u-1-5"><button #player class="button-info pure-button" (click)="showRules()">Rules</button></div>
-  <div class="pure-u-1-5"><button #master class="pure-button" [class.pure-button-primary]="mode === 1" (click)="setGameToMaster()">I am master</button>
+  <div class="pure-u-1-4"><button #master class="pure-button" [class.pure-button-primary]="mode === 1" (click)="setGameToMaster()">I am master</button>
     <button #player class="pure-button" [class.pure-button-primary]="mode === 0" (click)="setGameToPlayer()">I am player</button>
   </div>
   <div class="pure-u-1-5"><button #player class="button-success pure-button" (click)="startGame()">Start</button></div>
@@ -33,7 +33,7 @@
 </div>
 
 <div class="pure-g">
-  <div *ngFor="let cardUrl of cardUrls; ; let index = index" class="pure-u-1-5">
+  <div *ngFor="let cardUrl of cardUrls; ; let index = index" [class.notSelected]="selectedImage != undefined && selectedImage != index" (click)="imageSelected(index)" class="pure-u-1-5">
     <img width="200" class = "pure-img" [src]="cardUrl" />
     <div style="font-weight: bold; text-align: center;">{{ cardTranslations[index] }}</div>
   </div>

@@ -14,6 +14,7 @@ export class AppComponent {
   cardUrls: string[] = [];
   cardTranslations: string[] = [];
   rulesVisible = false;
+  selectedImage: number | undefined;
 
   translations = [
     'Burn Down chart',
@@ -128,6 +129,7 @@ export class AppComponent {
   startGame() {
     this.cardUrls = [];
     this.cardTranslations = [];
+    this.selectedImage = undefined;
     this._httpClient.get(`${this.serverURL}/start`, {responseType: 'text'}).subscribe(() => {
       if (this.mode === GameMode.MASTER) {
         this._httpClient.get(`${this.serverURL}/master`, {responseType: 'text'}).subscribe((card) => {
@@ -149,6 +151,11 @@ export class AppComponent {
     this._httpClient.get(`${this.serverURL}/reset`, {responseType: 'text'}).subscribe(() => {
       this.cardUrls = [];
       this.cardTranslations = [];
+      this.selectedImage = undefined;
     });
+  }
+
+  imageSelected(index: number) {
+    this.selectedImage = index;
   }
 }
